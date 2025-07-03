@@ -36,12 +36,17 @@ function App() {
   
     try {
       console.log('Making fetch request...');
-      const response = await fetch('http://localhost:8000/generate', {
+      const response = await fetch('https://better-vibes-v1-316384244630.europe-west2.run.app/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'auth-token': '2pJlh3sgS3THepU', // ADD THIS
         },
-        body: JSON.stringify({ requirements }),
+        body: JSON.stringify({ 
+          requirements,
+          user_id: 'fa7568ef-2fcb-467a-a61b-a9353ff6ae34',
+          claude_api_key: "sk-anAA" // ADD THIS
+        }),
       });
   
       console.log('Response status:', response.status);
